@@ -1,0 +1,17 @@
+Model R2: 0.919731717659057
+features:
+- Age
+- Experience
+- Income
+- ZIPCode
+- Family
+- CCAvg
+- Education
+- Mortgage
+- SecuritiesAccount
+- CDAccount
+- Online
+- CreditCard
+- LoanPredict
+test_RMSE: 0.15596827024463455
+training_RMSE: 0.08829209493287045
