@@ -10,6 +10,10 @@ app = Flask(__name__)
 
 lime_data = pd.read_csv('assets/PersonalLoan_processed_data.csv').drop(columns = ['PersonalLoan'])
 
+@app.route('/', methods = ['GET'])
+def landing():
+    return jsonify(str('Serving is up!'))
+
 @app.route('/PersonalLoan', methods = ['POST']) 
 def get_data():
     
