@@ -47,7 +47,7 @@ def get_data():
     model = pickle.load(file)
     file.close()
     
-    data = pd.DataFrame(columns = ['Age', 'Experience', 'Income', 'ZIP Code', 'Family', 'CCAvg', 'Education', 'Mortgage', 'Securities Account', 'CD Account', 'Online', 'CreditCard'])
+    data = pd.DataFrame(columns = ['Age', 'Experience', 'Income', 'ZIPCode', 'Family', 'CCAvg', 'Education', 'Mortgage', 'SecuritiesAccount', 'CDAccount', 'Online', 'CreditCard'])
     data.loc[0,:] = predict_data
     model_data = model_ready_data(data)
     
