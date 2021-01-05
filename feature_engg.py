@@ -13,7 +13,10 @@ def model_ready_data(data):
     model = pickle.load(file)
     file.close()
     
-    data['LoanPredict'] = model.predict(data.drop('PersonalLoan', axis=1))
+    if 'PersonalLoan' in data.columns:
+        data['LoanPredict'] = model.predict(data.drop('PersonalLoan', axis=1))
+    else:
+        data['LoanPredict'] = model.predict(data)
     
     return data
 
