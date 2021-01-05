@@ -36,12 +36,12 @@ def get_data():
     print(request.data)
     predict_data = []
     for val in explain_data:
-        if val.isdigit() == True:
-            predict_data.append(int(val))
-        elif val.replace('.', '', 1).replace('"','',1).isdigit() == True:
-            predict_data.append(float(val))
-        else:
-            predict_data.append(str(val))
+#         if val.isdigit() == True:
+        predict_data.append(val)
+#         elif val.replace('.', '', 1).replace('"','',1).isdigit() == True:
+#             predict_data.append(float(val))
+#         else:
+#             predict_data.append(str(val))
             
     file = open('assets/PersonalLoan_model.pkl','rb')
     model = pickle.load(file)
