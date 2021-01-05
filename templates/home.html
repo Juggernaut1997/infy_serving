@@ -17,7 +17,7 @@
 			</form>
 			<h4>Prediction ID: {{ id }}</h4>
 			<!-- Form to enter new data for predictions  -->
-			<form action="{{ url_for('PersonalLoan')}}" method="POST">
+			<form action="{{ url_for('get_data')}}" method="POST">
 				<input type="text" name="Age" placeholder="Age" required="required" /><br>
 				<label for="Experience" style="font-size: medium;">Years of Experience</label><br>
 				<input type="range" name="Experience" min="0" max="50" required="required" /><br>
