@@ -3,6 +3,7 @@ WORKDIR /app
 COPY feature_engg.py feature_engg.py
 COPY app.py app.py
 COPY assets assets
+COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip
 RUN pip install numpy
 RUN pip install pandas
