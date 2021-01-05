@@ -10,9 +10,21 @@ app = Flask(__name__)
 
 lime_data = pd.read_csv('assets/PersonalLoan_processed_data.csv').drop(columns = ['PersonalLoan'])
 
+global id
+
+def randN():
+    N=7
+    min = pow(10, N-1)
+    max = pow(10, N) - 1
+    id = random.randint(min, max)
+    return id
+
 @app.route('/', methods = ['GET'])
-def landing():
-    return jsonify(str('Serving is up!'))
+def home():
+    global id
+    id = randN()
+    file = 'home.html'
+    return render_template(file, id=id)
 
 @app.route('/PersonalLoan', methods = ['POST']) 
 def get_data():
@@ -44,25 +56,13 @@ def get_data():
     
     prediction = model.predict(np.array(model_data.iloc[0,:]).reshape(1,-1))
     
-    return_data['prediction'] = str(np.expm1(prediction))
+    # return_data['prediction'] = str(np.expm1(prediction))
     
-    return_data = jsonify(return_data)
+    # return_data = jsonify(return_data)
     
-    return return_data
+    file = 'home.html'
+    return render_template(file, id=id, pred=str(np.expm1(prediction)))
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
 #     app.run()
-        
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
