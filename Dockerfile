@@ -3,9 +3,9 @@ WORKDIR /app
 COPY feature_engg.py feature_engg.py
 COPY app.py app.py
 COPY assets assets
-COPY requirements.txt requirements.txt
-COPY templates/home.html templates/home.html
-COPY static/style.css static/style.css
+# COPY requirements.txt requirements.txt
+COPY templates templates
+COPY static static
 RUN pip install --upgrade pip
 RUN pip install numpy
 RUN pip install pandas
