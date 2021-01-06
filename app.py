@@ -30,32 +30,23 @@ def home():
 @app.route('/PersonalLoan', methods = ['POST']) 
 def get_data():
     
-    explain_data = request.data.decode()
+    predict_data = [x for x in request.form.values()]
+    predict_data = np.array(predict_data)
     
-    explain_data = explain_data.split(',')
-    print(request.data)
-    predict_data = []
-    for val in explain_data:
-#         if val.isdigit() == True:
-        predict_data.append(val)
-#         elif val.replace('.', '', 1).replace('"','',1).isdigit() == True:
-#             predict_data.append(float(val))
-#         else:
-#             predict_data.append(str(val))
-            
+    print(predict_data)
+    
     file = open('assets/PersonalLoan_model.pkl','rb')
     model = pickle.load(file)
     file.close()
     
-    data = pd.DataFrame(columns = ['Age', 'Experience', 'Income', 'ZIPCode', 'Family', 'CCAvg', 'Education', 'Mortgage', 'SecuritiesAccount', 'CDAccount', 'Online', 'CreditCard'])
-    data.loc[0,:] = predict_data
+    data = pd.DataFrame([final], columns = ['Age', 'Experience', 'Income', 'ZIPCode', 'Family', 'CCAvg', 'Education', 'Mortgage', 'SecuritiesAccount', 'CDAccount', 'Online', 'CreditCard'])
     model_data = model_ready_data(data)
     
     print(model_data)
         
     return_data = {}
     
-    prediction = model.predict(np.array(model_data.iloc[0,:]).reshape(1,-1))
+    prediction = model.predict(np.array(data.iloc[0,:]).reshape(1,-1))
     
     # return_data['prediction'] = str(np.expm1(prediction))
     
