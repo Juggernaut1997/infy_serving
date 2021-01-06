@@ -39,7 +39,7 @@ def get_data():
     model = pickle.load(file)
     file.close()
     
-    data = pd.DataFrame([final], columns = ['Age', 'Experience', 'Income', 'ZIPCode', 'Family', 'CCAvg', 'Education', 'Mortgage', 'SecuritiesAccount', 'CDAccount', 'Online', 'CreditCard'])
+    data = pd.DataFrame([predict_data], columns = ['Age', 'Experience', 'Income', 'ZIPCode', 'Family', 'CCAvg', 'Education', 'Mortgage', 'SecuritiesAccount', 'CDAccount', 'Online', 'CreditCard'])
     model_data = model_ready_data(data)
     
     print(model_data)
