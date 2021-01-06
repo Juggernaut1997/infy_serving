@@ -40,20 +40,20 @@ def get_data():
     file.close()
     
     data = pd.DataFrame([predict_data], columns = ['Age', 'Experience', 'Income', 'ZIPCode', 'Family', 'CCAvg', 'Education', 'Mortgage', 'SecuritiesAccount', 'CDAccount', 'Online', 'CreditCard'])
-    model_data = model_ready_data(data)
+#     model_data = model_ready_data(data)
     
-    print(model_data)
+#     print(model_data)
         
-    return_data = {}
+#     return_data = {}
     
-    prediction = model.predict(np.array(data.iloc[0,:]).reshape(1,-1))
+    prediction = model.predict(data)
     
     # return_data['prediction'] = str(np.expm1(prediction))
     
     # return_data = jsonify(return_data)
     
     file = 'home.html'
-    return render_template(file, id=id, pred=str(np.expm1(prediction)))
+    return render_template(file, id=id, pred=prediction)
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
