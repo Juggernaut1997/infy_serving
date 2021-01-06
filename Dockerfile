@@ -13,6 +13,6 @@ RUN pip install sklearn
 RUN pip install pickle-mixin
 RUN pip install pyyaml
 RUN pip install Flask-gunicorn
-RUN pip install -r requirements.txt
+# RUN pip install -r requirements.txt
 ENV PORT 8080
 CMD ["gunicorn", "app:app"]
