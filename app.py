@@ -47,13 +47,13 @@ def get_data():
 #     return_data = {}
     
     prediction = model.predict(data)
-    print(prediction)
+#     print(prediction)
     # return_data['prediction'] = str(np.expm1(prediction))
     
     # return_data = jsonify(return_data)
     
     file = 'home.html'
-    return render_template(file, id=id, pred=prediction)
+    return render_template(file, id=id, pred=int(prediction))
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
