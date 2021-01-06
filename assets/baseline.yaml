@@ -1,4 +1,4 @@
-Model R2: 0.8723064644852354
+Model R2: 0.8510242085661079
 features:
 - Age
 - Experience
@@ -12,6 +12,5 @@ features:
 - CDAccount
 - Online
 - CreditCard
-- LoanPredict
-test_RMSE: 0.18822834351964826
-training_RMSE: 0.0
+test_RMSE: 0.20330984774028
+training_RMSE: 0.25341016280680845
